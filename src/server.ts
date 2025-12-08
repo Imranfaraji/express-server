@@ -54,6 +54,9 @@ app.get('/', (req:Request, res:Response) => {
 
 // user CRUD oparetion
 
+
+//  user post api
+
 app.post("/users",async (req:Request,res:Response)=>{
    const {name,email}=req.body
 
@@ -75,6 +78,9 @@ app.post("/users",async (req:Request,res:Response)=>{
   
 })
 
+
+//  get user api 
+
 app.get('/users', async(req:Request,res:Response)=>{
   try{
    const result = await pool.query(`SELECT * FROM users`)
@@ -91,6 +97,10 @@ app.get('/users', async(req:Request,res:Response)=>{
    })
   }
 })
+
+
+
+//  get dynamic user api
 
 app.get('/users/:id', async (req:Request, res: Response)=>{
     try{
