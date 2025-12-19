@@ -43,28 +43,28 @@ app.use('/users',userRoute)
 
 //  get dynamic user api
 
-app.get('/users/:id', async (req:Request, res: Response)=>{
-    try{
-     const result = await  pool.query(`SELECT * FROM users WHERE id=$1`,[req.params.id])
-     if(result.rows.length===0){
-      res.status(404).json({
-        success:false,
-        message:'User not found'
-      })
-     }else{
-        res.status(201).json({
-    success:false,
-    message: "data inserted success fully",
-    data:result.rows
-   })
-     }
-    }catch(err:any){
-    res.status(500).json({
-    success:false,
-    message: err?.message
-   })
-   }
-})
+// app.get('/users/:id', async (req:Request, res: Response)=>{
+//     try{
+//      const result = await  pool.query(`SELECT * FROM users WHERE id=$1`,[req.params.id])
+//      if(result.rows.length===0){
+//       res.status(404).json({
+//         success:false,
+//         message:'User not found'
+//       })
+//      }else{
+//         res.status(201).json({
+//     success:false,
+//     message: "data inserted success fully",
+//     data:result.rows
+//    })
+//      }
+//     }catch(err:any){
+//     res.status(500).json({
+//     success:false,
+//     message: err?.message
+//    })
+//    }
+// })
 
 
 // update user api

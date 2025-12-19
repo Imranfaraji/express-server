@@ -10,8 +10,14 @@ const getUser=async ()=>{
    return result
 }
 
+const getSingleUser=async (id:any)=>{
+    const result =pool.query(`SELECT * FROM users WHERE id=$1`,[id])
+    return result
+}
+
 
 export const userService={
     createUser,
-    getUser
+    getUser,
+    getSingleUser
 }

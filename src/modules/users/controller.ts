@@ -38,7 +38,26 @@ const getUser= async(req:Request,res:Response)=>{
   }
 }
 
+const getSingleUser=async(req:Request,res:Response)=>{
+    
+  try {
+   const result=await userService.getSingleUser(req.params.id)
+   res.status(201).json({
+    success:false,
+    message: "data inserted success fully",
+    data:result.rows
+   })
+  }catch(err:any){
+    res.status(500).json({
+    success:false,
+    message: err?.message
+   })
+  }
+}
+
 export const userControllers={
     createtUser,
-    getUser
+    getUser,
+    getSingleUser
+
 }
